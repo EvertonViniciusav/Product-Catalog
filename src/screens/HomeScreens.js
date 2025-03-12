@@ -26,6 +26,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Lista de Produtos.</Text>
       <TextInput
         style={styles.input}
         placeholder="📦 Nome do Produto"
@@ -39,8 +40,8 @@ const HomeScreen = () => {
         value={productPrice}
         onChangeText={setProductPrice}
       />
-      <Button title="📝 Adicionar Produto" onPress={handleAddProduct} />
-      
+      <Button title="📝 Adicionar Produto" onPress={handleAddProduct} style={styles.botao}/>
+      <Text style={styles.contador}>Você tem {products.length} produto(s) na lista.</Text>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
@@ -57,13 +58,27 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  title: {
+    fontSize: 30,
+    marginBottom: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   input: {
     borderBottomWidth: 1,
     marginBottom: 10,
     padding: 8,
     fontSize: 20,
   },
-
+  botao: {
+    fontSize: 20,
+  },
+  contador: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12,
+    color: '#333',
+  },
 });
 
 export default HomeScreen;
