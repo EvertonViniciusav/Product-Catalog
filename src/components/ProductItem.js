@@ -5,7 +5,7 @@ const ProductItem = ({ product, onRemove }) => {
   return (
     <TouchableOpacity onPress={() => onRemove(product.id)}>
       <View style={styles.productContainer}>
-        <Text style={styles.productName}>{product.name}</Text>
+        <Text style={styles.productName}>🧾 {product.name}</Text>
         <Text style={styles.productPrice}>R$ {product.price}</Text>
       </View>
     </TouchableOpacity>

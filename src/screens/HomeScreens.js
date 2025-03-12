@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, FlatList, StyleSheet } from 'react-native';
+import { Text, View, TextInput, Button, FlatList, StyleSheet } from 'react-native';
 import ProductItem from '../components/ProductItem';
 
 const HomeScreen = () => {
@@ -28,18 +28,19 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Nome do Produto"
+        placeholder="📦 Nome do Produto"
         value={productName}
         onChangeText={setProductName}
       />
       <TextInput
         style={styles.input}
-        placeholder="Preço do Produto"
+        placeholder="💰 Preço do Produto"
         keyboardType="numeric"
         value={productPrice}
         onChangeText={setProductPrice}
       />
-      <Button title="Adicionar Produto" onPress={handleAddProduct} />
+      <Button title="📝 Adicionar Produto" onPress={handleAddProduct} />
+      
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
@@ -60,7 +61,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginBottom: 10,
     padding: 8,
+    fontSize: 20,
   },
+
 });
 
 export default HomeScreen;
