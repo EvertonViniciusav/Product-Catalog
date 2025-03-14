@@ -8,7 +8,7 @@ const HomeScreen = () => {
   const [productName, setProductName] = useState('');
   const [productPrice, setProductPrice] = useState('');
 
-  const handleAddProduct = () => {
+  const AddProduct = () => {
     if (!productName || !productPrice) return;
     const newProduct = {
       id: Math.random().toString(),
@@ -20,7 +20,7 @@ const HomeScreen = () => {
     setProductPrice('');
   };
 
-  const handleRemoveProduct = (productId) => {
+  const RemoveProduct = (productId) => {
     setProducts((prevProducts) => prevProducts.filter(product => product.id !== productId));
   };
 
@@ -40,13 +40,13 @@ const HomeScreen = () => {
         value={productPrice}
         onChangeText={setProductPrice}
       />
-      <Button title="📝 Adicionar Produto" onPress={handleAddProduct} style={styles.botao}/>
-      <Text style={styles.contador}>Você tem {products.length} produto(s) na lista.</Text>
+      <Button title="📝 Adicionar Produto" onPress={AddProduct}/>
+      <Text style={styles.contador}>🗳️ Você tem {products.length} produto(s) na lista.</Text>
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <ProductItem product={item} onRemove={handleRemoveProduct} />
+          <ProductItem product={item} onRemove={RemoveProduct} />
         )}
       />
     </View>
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     marginBottom: 20,
+    marginTop: 30,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -68,9 +69,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     marginBottom: 10,
     padding: 8,
-    fontSize: 20,
-  },
-  botao: {
     fontSize: 20,
   },
   contador: {
